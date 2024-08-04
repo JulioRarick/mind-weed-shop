@@ -8,11 +8,11 @@ export function Header() {
       <div className="flex items-center gap-5">
         <Link
           href="/"
-          className="text-2xl font-extrabold tracking-tight text-white"
+          className="text-2xl font-extrabold tracking-tight text-black"
         >
           Mind<span className="text-emerald-500">Weed</span>
         </Link>
-        <form className="flex w-80 items-center gap-3 rounded-md bg-stone-900 px-5 py-3 ring-stone-600">
+        <form className="flex w-80 items-center gap-3 rounded-md bg-stone-200 px-5 py-3 ring-stone-400">
           <Search className="h-5 w-5 text-stone-500" />
           <input
             type="text"
