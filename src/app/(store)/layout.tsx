@@ -8,7 +8,7 @@ interface LayoutStoreProps {
 
 export default function LayoutStore({ children }: LayoutStoreProps) {
   return (
-    <main>
+    <main className="grid-rows-page mx-auto grid min-h-screen w-full max-w-screen-2xl gap-5 p-8">
       <Header />
       {children}
     </main>
