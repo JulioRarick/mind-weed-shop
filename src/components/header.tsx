@@ -23,8 +23,8 @@ export function Header() {
       </div>
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2">
-          <ShoppingCart className="h-6 w-6 text-white" />
-          <span className="text-sm">Cart (0)</span>
+          <ShoppingCart className="h-6 w-6 text-black" />
+          <span className="text-sm font-semibold">Cart (0)</span>
         </div>
         <div className="h-8 w-px bg-stone-600" />
         <Link href="/" className="flex items-center gap-3 hover:underline">

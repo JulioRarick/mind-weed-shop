@@ -1,68 +1,73 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Home() {
+import { Product } from '@/data/@types/product'
+import { api } from '@/data/api'
+
+async function getFeatured(): Promise<Product[]> {
+  const response = await api('/products/featured', {
+    next: {
+      revalidate: 60 * 60,
+    },
+  })
+
+  const products = await response.json()
+
+  return products
+}
+
+export default async function Home() {
+  const [mainFeaturedProduct, ...othersProducts] = await getFeatured()
+
   return (
-    <main className="grid-rows-6 grid max-h-[860px] grid-cols-9 gap-6">
+    <main className="grid max-h-[880px] grid-cols-9 grid-rows-6 gap-6">
       <Link
-        href="/"
+        href={`/product/${mainFeaturedProduct.slug}`}
         className="group relative col-span-6 row-span-6 flex items-center justify-center overflow-hidden rounded-lg bg-stone-300 shadow-sm"
       >
         <Image
           className="transition-transform duration-500 group-hover:scale-105"
-          src="/tshirt.png"
+          src={mainFeaturedProduct.image}
           alt="T-shirt Colorado Weed"
-          width={880}
-          height={880}
+          width={800}
+          height={800}
           quality={100}
         />
         <div className="absolute bottom-28 right-28 flex h-14 max-w-72 items-center gap-2 rounded-lg border-2 border-stone-300 bg-white/50 p-1 pl-3">
           <span className="truncate text-sm font-semibold">
-            T-shirt Colorado Weed
+            {mainFeaturedProduct.title}
           </span>
           <span className="flex h-full items-center justify-center rounded-lg bg-emerald-500 px-4 font-semibold">
-            US$ 50
+            {`US$ ${mainFeaturedProduct.price}`}
           </span>
         </div>
       </Link>
-      <Link
-        href="/"
-        className="group relative col-span-3 row-span-3 flex items-center justify-center overflow-hidden rounded-lg bg-stone-300 shadow-sm"
-      >
-        <Image
-          className="transition-transform duration-500 group-hover:scale-105"
-          src="/og-kush.png"
-          alt="OG Kush"
-          width={300}
-          height={300}
-          quality={100}
-        />
-        <div className="absolute bottom-10 right-10 flex h-14 max-w-72 items-center gap-2 rounded-lg border-2 border-stone-300 bg-white/50 p-1 pl-3">
-          <span className="truncate text-sm font-semibold">OG Kush</span>
-          <span className="flex h-full items-center justify-center rounded-lg bg-emerald-500 px-4 font-semibold">
-            US$ 40
-          </span>
-        </div>
-      </Link>
-      <Link
-        href="/"
-        className="group relative col-span-3 row-span-3 flex items-center justify-center overflow-hidden rounded-lg bg-stone-300 shadow-sm"
-      >
-        <Image
-          className="transition-transform duration-500 group-hover:scale-105"
-          src="/oil.png"
-          alt="CBD Oil"
-          width={300}
-          height={300}
-          quality={100}
-        />
-        <div className="absolute bottom-10 right-10 flex h-14 max-w-72 items-center gap-2 rounded-lg border-2 border-stone-300 bg-white/50 p-1 pl-3">
-          <span className="truncate text-sm font-semibold">CBD Oil</span>
-          <span className="flex h-full items-center justify-center rounded-lg bg-emerald-500 px-4 font-semibold">
-            US$ 20
-          </span>
-        </div>
-      </Link>
+      {othersProducts.map((product) => {
+        return (
+          <Link
+            key={product.id}
+            href={`/product/${product.slug}`}
+            className="group relative col-span-3 row-span-3 flex items-center justify-center overflow-hidden rounded-lg bg-stone-300 shadow-sm"
+          >
+            <Image
+              className="transition-transform duration-500 group-hover:scale-105"
+              src={product.image}
+              alt="OG Kush"
+              width={250}
+              height={250}
+              quality={100}
+            />
+            <div className="absolute bottom-10 right-10 flex h-14 max-w-72 items-center gap-2 rounded-lg border-2 border-stone-300 bg-white/50 p-1 pl-3">
+              <span className="truncate text-sm font-semibold">
+                {product.title}
+              </span>
+              <span className="flex h-full items-center justify-center rounded-lg bg-emerald-500 px-4 font-semibold">
+                {`US$ ${product.price}`}
+              </span>
+            </div>
+          </Link>
+        )
+      })}
     </main>
   )
 }
