@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="grid max-h-[860px] grid-cols-9 grid-rows-6 gap-6">
+    <main className="grid-rows-6 grid max-h-[860px] grid-cols-9 gap-6">
       <Link
         href="/"
         className="group relative col-span-6 row-span-6 flex items-center justify-center overflow-hidden rounded-lg bg-stone-300 shadow-sm"
@@ -31,7 +31,7 @@ export default function Home() {
       >
         <Image
           className="transition-transform duration-500 group-hover:scale-105"
-          src="/ogKush.png"
+          src="/og-kush.png"
           alt="OG Kush"
           width={300}
           height={300}
