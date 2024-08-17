@@ -6,7 +6,10 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'], variable: '--fm-inter' })
 
 export const metadata: Metadata = {
-  title: 'MindWeed Shop',
+  title: {
+    template: '%s | MindWeed',
+    default: 'MindWeed',
+  },
   description: 'Developed by Julio Rarick',
 }
 

@@ -7,7 +7,8 @@
       "price": 50,
       "image": "/tshirt.png",
       "description": "T-shirt 100% cotton, with a unique design.",
-      "featured": true
+      "featured": true,
+      "variant": "clothing"
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "price": 60,
       "image": "/og-kush.png",
       "description": "OG Kush is a hybrid strain that is known for its balanced effects.",
-      "featured": true
+      "featured": true,
+      "variant": "smoke"
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "price": 20,
       "image": "/oil.png",
       "description": "CBD Oil is a natural oil that is extracted from the flowers and leaves of the hemp plant.",
-      "featured": true
+      "featured": true,
+      "variant": "natural"
     },
     {
       "id": 4,
@@ -34,7 +37,8 @@
       "price": 49,
       "image": "/lemon-haze.png",
       "description": "Lemon Haze is a sativa-dominant hybrid strain that is known for its uplifting and energizing effects.",
-      "featured": false
+      "featured": false,
+      "variant": "smoke"
     },
     {
       "id": 5,
@@ -43,7 +47,8 @@
       "price": 99,
       "image": "/orange-kush.png",
       "description": "Orange Kush is an indica-dominant hybrid strain that is known for its relaxing and sedative effects.",
-      "featured": false
+      "featured": false,
+      "variant": "smoke"
     },
     {
       "id": 6,
@@ -52,7 +57,8 @@
       "price": 99,
       "image": "/gorilla-kush.png",
       "description": "Gorilla Kush is an indica-dominant hybrid strain that is known for its heavy and sedative effects.",
-      "featured": false
+      "featured": false,
+      "variant": "smoke"
     }
   ]
 }
