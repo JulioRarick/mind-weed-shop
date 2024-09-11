@@ -1,9 +1,10 @@
+import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 
 import data from '../data.json'
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { slug: string } },
 ) {
   await new Promise((resolve) => setTimeout(resolve, 3000))
@@ -16,5 +17,5 @@ export async function GET(
     return Response.json({ message: 'Product not found' }, { status: 400 })
   }
 
-  return Response.json(product)
+  return NextResponse.json(product)
 }

@@ -1,6 +1,8 @@
-import { Search, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { CartWidget } from './cart-widget'
+import { SearchProduct } from './search-product'
 
 export function Header() {
   return (
@@ -12,20 +14,10 @@ export function Header() {
         >
           Mind<span className="text-emerald-500">Weed</span>
         </Link>
-        <form className="flex w-80 items-center gap-3 rounded-md bg-stone-200 px-5 py-3 ring-stone-400">
-          <Search className="h-5 w-5 text-stone-500" />
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="flex-1 bg-transparent text-sm outline-none placeholder:text-stone-500"
-          />
-        </form>
+        <SearchProduct />
       </div>
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <ShoppingCart className="h-6 w-6 text-black" />
-          <span className="text-sm font-semibold">Cart (0)</span>
-        </div>
+        <CartWidget />
         <div className="h-8 w-px bg-stone-600" />
         <Link href="/" className="flex items-center gap-3 hover:underline">
           <span className="text-sm">Account</span>

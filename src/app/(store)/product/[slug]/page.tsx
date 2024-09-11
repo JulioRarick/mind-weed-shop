@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 
+import { ButtonAddToCart } from '@/components/button-add-to-cart'
 import { Product } from '@/data/@types/product'
 import { api } from '@/data/api'
 
@@ -155,9 +156,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
           )}
         </section>
-        <button className="mt-8 flex h-12 items-center justify-center rounded-lg bg-emerald-600 font-semibold text-white hover:bg-emerald-700">
-          Add to cart
-        </button>
+        <ButtonAddToCart idProduct={product.id} />
       </article>
     </main>
   )
