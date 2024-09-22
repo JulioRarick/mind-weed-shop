@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 import { CartWidget } from './cart-widget'
 import { SearchProduct } from './search-product'
@@ -14,7 +15,9 @@ export function Header() {
         >
           Mind<span className="text-emerald-500">Weed</span>
         </Link>
-        <SearchProduct />
+        <Suspense fallback={null}>
+          <SearchProduct />
+        </Suspense>
       </div>
       <div className="flex items-center gap-4">
         <CartWidget />
